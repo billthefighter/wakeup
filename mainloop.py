@@ -3,7 +3,19 @@
 #init variables
 
 #init classes
+import time
+from rgbmatrix import Adafruit_RGBmatrix
 
+# Rows and chain length are both required parameters:
+matrix = Adafruit_RGBmatrix(32, 1)
+
+# Flash screen red, green, blue (packed color values)
+matrix.Fill(0xFF0000)
+time.sleep(1.0)
+matrix.Fill(0x00FF00)
+time.sleep(1.0)
+matrix.Fill(0x0000FF)
+time.sleep(1.0)
 
 #init current time
 
