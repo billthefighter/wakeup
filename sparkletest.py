@@ -88,6 +88,7 @@ while poop < 100:
 	#draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
 
 	#call draw for all the shit
+	matrix.Clear()
 	for x in starlist: 
 		x.draw()
 		pass
