@@ -9,7 +9,9 @@ from rgbmatrix import Adafruit_RGBmatrix
 #global inits
 fps            = 2  # Scrolling speed (ish)
 prevTime    = 0.0
-image       = Image.new('L', (width, height))
+width          = 32  # Matrix size (pixels) -- change for different matrix
+height         = 32  # types (incl. tiling).  Other code may need tweaks.
+image       = Image.new('L', (32, 32))
 draw        = ImageDraw.Draw(image)
 
 def clearOnExit():
@@ -38,6 +40,12 @@ class star:
 		self.y = random.randint(0, 32)
 		self.sp = 0
 		self.toggle = 0
+	def draw():
+		x = self.x
+		y = self.y
+		sp = self.sp
+		draw.point([x,y], fill = sp)
+
 
 
 
@@ -71,7 +79,19 @@ while poop < 10:
 	#for i in xrange(1,10):
 	#	print starlist[i].x,starlist[i].y,starlist[i].sp,starlist[i].toggle
 	#	pass
-	poop += 1	
+
+	#OH SHIT START DRAWING STUFF FOR REAL
+	# Clear background
+	draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
+
+	#call draw for all the shit
+	for x in xrange(len(starlist)): 
+		x.draw()
+		pass
+
+
+
+	#timer
 	currentTime = time.time()
 	timeDelta   = (1.0 / fps) - (currentTime - prevTime)
 	if(timeDelta > 0.0):
@@ -80,8 +100,11 @@ while poop < 10:
 
 	# Offscreen buffer is copied to screen
 	matrix.SetImage(image.im.id, 0, 0)
+	
+	poop += 1	#increment poop
 	pass
 
+matrix.Clear()
 
 
 #
