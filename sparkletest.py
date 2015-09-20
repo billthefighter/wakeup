@@ -53,7 +53,7 @@ class star:
 
 #generate initial list of stars
 starlist = [] 
-for i in xrange(len(starno)):
+for i in xrange(0,starno):
 	starlist.append(star())
 	#print starlist[i].x,starlist[i].y,starlist[i].sp,starlist[i].toggle
 	pass
