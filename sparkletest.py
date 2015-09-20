@@ -7,7 +7,7 @@ import ImageDraw
 from rgbmatrix import Adafruit_RGBmatrix
 
 #global inits
-fps            = 5  # Scrolling speed (ish)
+fps            = 1  # Scrolling speed (ish)
 prevTime    = 0.0
 width          = 32  # Matrix size (pixels) -- change for different matrix
 height         = 32  # types (incl. tiling).  Other code may need tweaks.
@@ -58,7 +58,7 @@ for i in xrange(0,10):
 	pass
 
 poop = 0
-while poop < 10:
+while poop < 100:
 	#print poop
 	#print 'starting starloop'
 	#loop through stars
