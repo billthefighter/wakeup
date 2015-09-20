@@ -105,6 +105,8 @@ while poop < 100:
 	matrix.SetImage(image.im.id, 0, 0)
 	
 	poop += 1	#increment poop
+	print 'length of newstar is:'
+	print len(starlist)
 	pass
 
 matrix.Clear()
