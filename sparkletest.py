@@ -2,11 +2,6 @@
 import random
 
 class star:
-	# def __init__(self, x, y, sp, toggle):
-	# 	self.x = x
-	# 	self.y = y
-	# 	self.sp = sp #sparkle value
-	# 	self.toggle = toggle
 	def __init__(self):
 		self.x = random.randint(0, 32)
 		self.y = random.randint(0, 32)
@@ -30,17 +25,12 @@ class star:
 
 
 
-		
-		
-x = star()
-print x.sp
-
 #generate initial list of stars
-# starlist = [] 
-# for i in xrange(0,10):
-# 	starlist.append(star(makestar()))
-# 	print starlist[i].x,starlist[i].y,starlist[i].sp,starlist[i].toggle
-# 	pass
+starlist = [] 
+for i in xrange(0,10):
+	starlist.append(star())
+	print starlist[i].x,starlist[i].y,starlist[i].sp,starlist[i].toggle
+	pass
 
 
 # #loop through stars
