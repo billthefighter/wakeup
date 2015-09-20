@@ -1,10 +1,21 @@
 # test to debug sparkle class in pure python before moving to matrix
 import random
 import time
+import atexit
+import Image
+import ImageDraw
+from rgbmatrix import Adafruit_RGBmatrix
 
 #global inits
 fps            = 2  # Scrolling speed (ish)
 prevTime    = 0.0
+image       = Image.new('L', (width, height))
+draw        = ImageDraw.Draw(image)
+
+def clearOnExit():
+	matrix.Clear()
+
+atexit.register(clearOnExit)
 
 class star:
 	def __init__(self):
@@ -66,6 +77,9 @@ while poop < 10:
 	if(timeDelta > 0.0):
 		time.sleep(timeDelta)
 	prevTime = currentTime
+
+	# Offscreen buffer is copied to screen
+	matrix.SetImage(image.im.id, 0, 0)
 	pass
 
 
