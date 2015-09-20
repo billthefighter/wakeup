@@ -7,6 +7,7 @@ import ImageDraw
 from rgbmatrix import Adafruit_RGBmatrix
 
 #global inits
+starno			=2 #number of stars
 fps            = 1  # Scrolling speed (ish)
 prevTime    = 0.0
 width          = 32  # Matrix size (pixels) -- change for different matrix
@@ -52,7 +53,7 @@ class star:
 
 #generate initial list of stars
 starlist = [] 
-for i in xrange(0,10):
+for i in xrange(len(starno)):
 	starlist.append(star())
 	#print starlist[i].x,starlist[i].y,starlist[i].sp,starlist[i].toggle
 	pass
@@ -74,7 +75,7 @@ while poop < 100:
 	 			pass	
 	 	pass
 	#check how many stars there are in the list, if there's less than 10 then make a new star
-	if len(starlist) < 10:
+	if len(starlist) < starno:
 		starlist.append(star())
 		starlist[i].newstar()
 		#NOTE NOTE NOTE Need to make sure to newstar the newly appended star or it will just pop on at some random value
