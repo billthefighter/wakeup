@@ -11,7 +11,7 @@ fps            = 5  # Scrolling speed (ish)
 prevTime    = 0.0
 width          = 32  # Matrix size (pixels) -- change for different matrix
 height         = 32  # types (incl. tiling).  Other code may need tweaks.
-image       = Image.new('L', (32, 32))
+image       = Image.new('RGB', (32, 32))
 draw        = ImageDraw.Draw(image)
 matrix = Adafruit_RGBmatrix(32, 1)
 
@@ -45,7 +45,7 @@ class star:
 		x = self.x
 		y = self.y
 		sp = self.sp
-		draw.point([x,y], fill = 30*sp)
+		draw.point([x,y], fill = (30*sp, 30*sp, 30*sp)
 
 
 
