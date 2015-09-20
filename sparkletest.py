@@ -45,7 +45,7 @@ class star:
 		x = self.x
 		y = self.y
 		sp = self.sp
-		draw.point([x,y], fill = (30*sp, 30*sp, 30*sp)
+		draw.point([x,y], fill = (30*sp, 30*sp, 30*sp))
 
 
 
