@@ -82,7 +82,7 @@ while poop < 10:
 
 	#OH SHIT START DRAWING STUFF FOR REAL
 	# Clear background
-	draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
+	#draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
 
 	#call draw for all the shit
 	for x in xrange(len(starlist)): 
