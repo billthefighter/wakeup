@@ -36,12 +36,12 @@ class star:
 			self.sp -= 1
 		elif self.toggle == 1 and self.sp > 0:
 			self.sp -= 1
-	def newstar():
+	def newstar(self):
 		self.x = random.randint(0, 32)
 		self.y = random.randint(0, 32)
 		self.sp = 0
 		self.toggle = 0
-	def draw():
+	def draw(self):
 		x = self.x
 		y = self.y
 		sp = self.sp
