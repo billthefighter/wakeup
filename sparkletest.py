@@ -86,7 +86,7 @@ while poop < 10:
 	#draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
 
 	#call draw for all the shit
-	for x in xrange(len(starlist)): 
+	for x in starlist: 
 		x.draw()
 		pass
 
