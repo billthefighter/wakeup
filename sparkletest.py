@@ -66,6 +66,7 @@ while poop < 100:
 	 	if starlist[i].sp == 0 and starlist[i].toggle == 1: #if it's in the list and has completed sparkling, this condition will be true
 	 			starlist.pop(i)
 	 			starlist.append(star()) #since we might have popped a star off the list, the loop can fail if the list suddenly becomes smaller
+	 			starlist[i].newstar()
 	 			#NOTE NOTE NOTE Need to make sure to newstar the newly appended star or it will just pop on at some random value
 	 			pass
 	 	else:
@@ -75,6 +76,7 @@ while poop < 100:
 	#check how many stars there are in the list, if there's less than 10 then make a new star
 	if len(starlist) < 10:
 		starlist.append(star())
+		starlist[i].newstar()
 		#NOTE NOTE NOTE Need to make sure to newstar the newly appended star or it will just pop on at some random value
 	print starlist[0].x,starlist[0].y,starlist[0].sp,starlist[0].toggle
 	#for i in xrange(1,10):
