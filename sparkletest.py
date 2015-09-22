@@ -104,7 +104,7 @@ while poop < 100:
 	prevTime = currentTime
 
 	# Offscreen buffer is copied to screen
-	matrix.SetImage(image.im.id, 0, 0)
+	#matrix.SetImage(image.im.id, 0, 0)
 	
 	poop += 1	#increment poop
 	print 'length of newstar is:'
