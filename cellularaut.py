@@ -45,6 +45,7 @@ def showResult(result, dims, k=2):
     i.load()
     i.show()
     matrix.SetImage(i.im.id, 0, 0)
+    time.sleep(2)
 
 def runTest(runrule,lines):
     result, dims = basicRun(runrule, lines, step)
