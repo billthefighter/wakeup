@@ -5,7 +5,7 @@ from rgbmatrix import Adafruit_RGBmatrix
 import atexit
 import time
 #define inputs
-#runrule = 3
+runrule = 3
 
 matrix = Adafruit_RGBmatrix(32, 1)
 
@@ -39,7 +39,7 @@ def basicRun(rule, steps, stepper, seed=[1], k=2, r=1):
     return result, (len(seed), steps + 1)
 
 def showResult(result, dims, k=2):
-    i = Image.new("RGB", dims)
+    i = Image.new("L", dims)
     i.putdata(result, (255 / (k - 1)))
     i = i.crop(i.getbbox())
     i = ImageOps.invert(i)
