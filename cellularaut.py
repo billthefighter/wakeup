@@ -3,6 +3,7 @@ from PIL import ImageOps
 import random
 from rgbmatrix import Adafruit_RGBmatrix
 import atexit
+import time
 #define inputs
 #runrule = 3
 
