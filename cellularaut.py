@@ -1,7 +1,7 @@
 from PIL import Image
 from PIL import ImageOps
 import random
-#from rgbmatrix import Adafruit_RGBmatrix
+from rgbmatrix import Adafruit_RGBmatrix
 import atexit
 #define inputs
 #runrule = 3
