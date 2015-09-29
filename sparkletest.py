@@ -4,11 +4,11 @@ import time
 import atexit
 from PIL import Image
 from PIL import ImageDraw
-#from rgbmatrix import Adafruit_RGBmatrix
+from rgbmatrix import Adafruit_RGBmatrix
 
 #global inits
-starno			=10 #number of stars
-fps            = 4  # Scrolling speed (ish)
+starno			=32 #number of stars
+fps            = 8  # Scrolling speed (ish)
 prevTime    = time.time()
 width          = 32  # Matrix size (pixels) -- change for different matrix
 height         = 32  # types (incl. tiling).  Other code may need tweaks.
@@ -59,15 +59,16 @@ for i in xrange(0,starno):
 	pass
 
 poop = 0
-while poop < 10:
+while poop < 100:
 	#print poop
 	#print 'starting starloop'
 	#loop through stars
 	for i in xrange(len(starlist)):
 	 	if starlist[i].sp == 0 and starlist[i].toggle == 1: #if it's in the list and has completed sparkling, this condition will be true
 	 			starlist.pop(i)
-	 			starlist.append(star()) #since we might have popped a star off the list, the loop can fail if the list suddenly becomes smaller
-	 			starlist[i].newstar()
+	 			ournewfriend=star()
+				ournewfriend.newstar()
+				starlist.append(ournewfriend) #since we might have popped a star off the list, the loop can fail if the list suddenly becomes small
 	 			#NOTE NOTE NOTE Need to make sure to newstar the newly appended star or it will just pop on at some random value
 	 			pass
 	 	else:
