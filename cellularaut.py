@@ -6,6 +6,13 @@ import atexit
 #define inputs
 #runrule = 3
 
+matrix = Adafruit_RGBmatrix(32, 1)
+
+def clearOnExit():
+    matrix.Clear()
+
+atexit.register(clearOnExit)
+
 def step(a, rule, k=2, r=1):
     nbrs = [a[c:] + a[:c] for c in range(-r, r+1, 1)]
     l = []
@@ -37,7 +44,7 @@ def showResult(result, dims, k=2):
     i = ImageOps.invert(i)
     i.load()
     i.show()
-    matrix.SetImage(image.im.id, 0, 0)
+    matrix.SetImage(i.im.id, 0, 0)
 
 def runTest(runrule,lines):
     result, dims = basicRun(runrule, lines, step)
