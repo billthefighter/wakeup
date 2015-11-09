@@ -32,6 +32,7 @@
 # knowledge of the CeCILL license and that you accept its terms.
 # -----------------------------------------------------------------------------
 import numpy as np
+np.set_printoptions(threshold='nan')
 
 def iterate_1(Z):
     # Count neighbours
@@ -53,6 +54,7 @@ def iterate_1(Z):
     Z_[R2] = 0
     Z_[R3] = Z_[R3]
     Z_[R4] = 1
+    #R4 is the birth state, need to add additional dimension to each cell to add the color. 
 
     # Make sure borders stay null
     Z[0,:] = Z[-1,:] = Z[:,0] = Z[:,-1] = 0
@@ -72,14 +74,21 @@ def iterate_2(Z):
     return Z
 
 
-Z = np.array([[0,0,0,0,0,0],
-              [0,0,0,1,0,0],
-              [0,1,0,1,0,0],
-              [0,0,1,1,0,0],
-              [0,0,0,0,0,0],
-              [0,0,0,0,0,0]])
+#Z = np.array([[0,0,0,0,0,0],
+#              [0,0,0,1,0,0],
+#              [0,1,0,1,0,0],
+#              [0,0,1,1,0,0],
+#              [0,0,0,0,0,0],
+#              [0,0,0,0,0,0]])
+
+Z = np.empty ([32,32], dtype=bool)
+Z =  Z.astype(int)
+
 
 print Z
 print
 for i in range(4): iterate_2(Z)
+print Z
+for i in range(4): iterate_2(Z)
+print
 print Z
