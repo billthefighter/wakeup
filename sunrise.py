@@ -62,7 +62,7 @@ class sun:
 			self.color = [colorvalr,colorvalg,0]
 			print self.color
 	def draw(self):
-		draw.rectangle((self.location), fill=(self.color))
+		draw.rectangle((self.location), fill=self.color)
 
 
 #---------------Start Program--------------------------------------------------------------------
