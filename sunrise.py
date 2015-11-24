@@ -17,7 +17,7 @@ width          = 32  # Matrix size (pixels) -- change for different matrix
 height         = 32  # types (incl. tiling).  Other code may need tweaks.
 
 # ------------Image Block---------------------
-image       = Image.new('RGB', (32, 64))
+image       = Image.new('RGB', (64, 32))
 draw        = ImageDraw.Draw(image)
 matrix      = Adafruit_RGBmatrix(32, 2)
 
