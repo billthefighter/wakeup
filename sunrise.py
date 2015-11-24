@@ -34,7 +34,7 @@ def ratecalcsin(step,scale):
 
 class sun:
 	def __init__(self,panelno):
-		self.color = [0,0,0]
+		self.color = (0,0,0)
 		self.panel = panelno
 		self.location = [0,0,0,0]
 		self.step = 0 #so each sun can track its own state
