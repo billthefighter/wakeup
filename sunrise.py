@@ -59,7 +59,7 @@ class sun:
 			colorvalr = ratecalcsin(float(self.step),self.maxstep)
 			#print colorvalr
 			colorvalg = int(float(self.step)/self.maxstep*255)
-			self.color = [colorvalr,colorvalg,0]
+			self.color = (colorvalr,colorvalg,0)
 			print self.color
 	def draw(self):
 		draw.rectangle((self.location), fill=self.color)
