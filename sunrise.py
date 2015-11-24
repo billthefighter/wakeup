@@ -61,7 +61,7 @@ class sun:
 			colorvalg = int(float(self.step)/self.maxstep*255)
 			if self.step > int(float(self.maxstep)/2):
 				colorvalb = 2*int(float(self.step-int(float(self.maxstep)/2))/self.maxstep*255)
-			elif: 
+			else: 
 				colorvalb = 0
 			self.color = (colorvalr,colorvalg,colorvalb)
 			#print self.color
