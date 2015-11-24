@@ -19,7 +19,7 @@ height         = 32  # types (incl. tiling).  Other code may need tweaks.
 # ------------Image Block---------------------
 image       = Image.new('RGB', (32, 32))
 draw        = ImageDraw.Draw(image)
-matrix      = Adafruit_RGBmatrix(32, 1)
+matrix      = Adafruit_RGBmatrix(32, 2)
 
 
 def clearOnExit():
