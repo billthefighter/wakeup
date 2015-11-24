@@ -8,7 +8,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 # ------------Image Block---------------------
-#from rgbmatrix import Adafruit_RGBmatrix
+from rgbmatrix import Adafruit_RGBmatrix
 # ------------Image Block---------------------
 
 fps            = 8  # Scrolling speed (ish)
@@ -19,8 +19,8 @@ height         = 32  # types (incl. tiling).  Other code may need tweaks.
 # ------------Image Block---------------------
 image       = Image.new('RGB', (32, 32))
 draw        = ImageDraw.Draw(image)
-#matrix      = Adafruit_RGBmatrix(32, 2)
-#atexit.register(clearOnExit)
+matrix      = Adafruit_RGBmatrix(32, 2)
+atexit.register(clearOnExit)
 
 def clearOnExit():
 	matrix.Clear()
@@ -76,18 +76,18 @@ sunrise_es = sun(1)
 poop = 0
 while poop < 300:
 # ------------Image Block---------------------
-	## Clear background
-	#draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
+	# Clear background
+	draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
 # ------------Image Block---------------------
 	
 	poop += 1
 	#print poop
 	sunrise_lw.colorinc()
-	#sunrise_lw.draw()
+	sunrise_lw.draw()
 	#print sunrise_lw.color
 
 	sunrise_es.colorinc()
-	#sunrise_es.draw()
+	sunrise_es.draw()
 
 	
 
@@ -104,5 +104,5 @@ while poop < 300:
 
 # ------------Image Block---------------------
 	## Offscreen buffer is copied to screen
-	#matrix.SetImage(image.im.id, 0, 0)
+	matrix.SetImage(image.im.id, 0, 0)
 # ------------Image Block---------------------
