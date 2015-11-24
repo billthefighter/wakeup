@@ -8,7 +8,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 # ------------Image Block---------------------
-from rgbmatrix import Adafruit_RGBmatrix
+#from rgbmatrix import Adafruit_RGBmatrix
 # ------------Image Block---------------------
 
 fps            = 8  # Scrolling speed (ish)
@@ -19,15 +19,15 @@ height         = 32  # types (incl. tiling).  Other code may need tweaks.
 # ------------Image Block---------------------
 image       = Image.new('RGB', (32, 32))
 draw        = ImageDraw.Draw(image)
-matrix      = Adafruit_RGBmatrix(32, 2)
-atexit.register(clearOnExit)
+#matrix      = Adafruit_RGBmatrix(32, 2)
+#atexit.register(clearOnExit)
 
 def clearOnExit():
 	matrix.Clear()
 # ------------Image Block---------------------
 
 def ratecalcsin(step,scale):
-	int(round(255*math.sin(math.radians(90*(step/scale)))))
+	return int(round(255*math.sin(math.radians(90*(step/scale)))))
 
 
 
@@ -48,16 +48,18 @@ class sun:
 	def colorinc(self):
 		if self.step == self.maxstep:
 			pass
-		elif self.step <= 0 and self.step > 255:
+		elif self.step >= 0 and self.step < 255:
 			self.step += 1
 			#this whole line is basically to try to make a non-linear scale of light
 			#intent is to go from a steeper change value at the beginning to a more gradual one later
 			#super conviluted but it's the best I could think of at the time
 			#colorval = int(round(255*math.sin(math.radians((90*(self.step/self.maxstep))))))
 			# this is a shitty hack to make it get gradually more yellow
-			colorvalr = ratecalcsin(self.step,self.maxstep)
-			colorvalg = self.step/self.maxstep*255
-			self.color = [colorvalr,colorvalb,0]
+			colorvalr = ratecalcsin(float(self.step),self.maxstep)
+			#print colorvalr
+			colorvalg = int(float(self.step)/self.maxstep*255)
+			self.color = [colorvalr,colorvalg,0]
+			print self.color
 	def draw(self):
 		draw.rectangle((self.location), fill=(self.color))
 
@@ -69,32 +71,38 @@ class sun:
 sunrise_lw = sun(0)
 sunrise_es = sun(1)
 
-state = 4
-while state == 4:
+#state = 4
+#while state == 4:
+poop = 0
+while poop < 300:
 # ------------Image Block---------------------
-	# Clear background
-	draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
+	## Clear background
+	#draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
 # ------------Image Block---------------------
+	
+	poop += 1
+	#print poop
 	sunrise_lw.colorinc()
-	sunrise_lw.draw()
-
+	#sunrise_lw.draw()
+	#print sunrise_lw.color
 
 	sunrise_es.colorinc()
-	sunrise_es.draw()
+	#sunrise_es.draw()
 
 	
 
 #Timing 
-	print "First Half:",1.0/fps,"second half:",(currentTime - prevTime)
+	currentTime = time.time()
+	#print "First Half:",1.0/fps,"second half:",(currentTime - prevTime)
 	timeDelta   = (1.0 / fps) - (currentTime - prevTime)
-	print "timeDelta"
-	print timeDelta
+	#print "timeDelta"
+	#print timeDelta
 	if(timeDelta > 0.00):
 		time.sleep(timeDelta)
-		print "sleeping"
+		#print "sleeping"
 		prevTime = time.time()
 
 # ------------Image Block---------------------
-	# Offscreen buffer is copied to screen
-	matrix.SetImage(image.im.id, 0, 0)
+	## Offscreen buffer is copied to screen
+	#matrix.SetImage(image.im.id, 0, 0)
 # ------------Image Block---------------------
