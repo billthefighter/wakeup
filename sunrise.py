@@ -41,9 +41,9 @@ class sun:
 		self.maxstep = 255
 		#this bit is basically a conviluted way to initialize where the sun is (if it's sun 0 spawn in panel 0, ect)
 		if self.panel == 0:
-			self.location = [0,0,32,32]
+			self.location = [0,0,16,16]
 		elif self.panel == 1:
-			self.location = [0,33,64,64]
+			self.location = [16,16,32,32]
 		else:
 			self.location = [0,0,0,0]
 	def colorinc(self):

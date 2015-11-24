@@ -49,3 +49,8 @@ class sun:
 			print self.color
 
 print ratecalcsin(3,25.0)
+
+sunrise_lw = sun(0)
+sunrise_es = sun(1)
+
+print sunrise_es.location
