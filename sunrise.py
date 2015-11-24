@@ -49,7 +49,7 @@ class sun:
 	def colorinc(self):
 		if self.step == self.maxstep:
 			pass
-		elif self.step >= 0 and self.step < 255:
+		elif self.step >= 0 and self.step < self.maxstep:
 			self.step += 1
 			#this whole line is basically to try to make a non-linear scale of light
 			#intent is to go from a steeper change value at the beginning to a more gradual one later
@@ -59,7 +59,9 @@ class sun:
 			colorvalr = ratecalcsin(float(self.step),self.maxstep)
 			#print colorvalr
 			colorvalg = int(float(self.step)/self.maxstep*255)
-			self.color = (colorvalr,colorvalg,0)
+			if self.step > int(float(self.maxstep)/2):
+				colorvalb = 2*int(float(self.step-int(float(self.maxstep)/2))/self.maxstep*255)
+			self.color = (colorvalr,colorvalg,colorvalb)
 			#print self.color
 	def draw(self):
 		draw.rectangle((self.location), fill=self.color)
