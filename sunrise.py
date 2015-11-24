@@ -60,7 +60,7 @@ class sun:
 			#print colorvalr
 			colorvalg = int(float(self.step)/self.maxstep*255)
 			self.color = (colorvalr,colorvalg,0)
-			print self.color
+			#print self.color
 	def draw(self):
 		draw.rectangle((self.location), fill=self.color)
 
@@ -78,7 +78,7 @@ poop = 0
 while poop < 300:
 # ------------Image Block---------------------
 	# Clear background
-	draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
+	#draw.rectangle((0, 0, 32, 32), fill=(0, 0, 0))
 # ------------Image Block---------------------
 	
 	poop += 1
