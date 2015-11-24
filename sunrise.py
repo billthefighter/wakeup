@@ -20,10 +20,11 @@ height         = 32  # types (incl. tiling).  Other code may need tweaks.
 image       = Image.new('RGB', (32, 32))
 draw        = ImageDraw.Draw(image)
 matrix      = Adafruit_RGBmatrix(32, 2)
-atexit.register(clearOnExit)
+
 
 def clearOnExit():
 	matrix.Clear()
+atexit.register(clearOnExit)
 # ------------Image Block---------------------
 
 def ratecalcsin(step,scale):
