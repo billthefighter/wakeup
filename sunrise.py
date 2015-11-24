@@ -43,7 +43,7 @@ class sun:
 		if self.panel == 0:
 			self.location = [0,0,16,16]
 		elif self.panel == 1:
-			self.location = [0,33,32,64]
+			self.location = [33,0,64,32]
 		else:
 			self.location = [0,0,0,0]
 	def colorinc(self):
